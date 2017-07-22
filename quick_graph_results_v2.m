@@ -7,14 +7,8 @@
 % There is one configurable variable: the block id ('B' plus the number
 % of the block) to be processed.
 
-    %channel to graph
-    channel_id = 'C4';
-
     %block to graph
     block = 'B17';
-    
-    %cluster to graph (1, 2, 3, etc)
-    cluster_num = 1;
     
     %file to graph
     file_name = '2017-07-06-c-trimmed_processed';
@@ -26,7 +20,7 @@
     load(file_name);
 
     %block to process
-    block_id = [channel_id block];
+    block_id = ['C4' block];
     
     %calculate row that contains target block data:
     %  - create array to hold variable names
@@ -70,7 +64,7 @@ end
 intra_data = subplot(2, 1, 1); %create subplot for intracellular data
 
 %% Change cluster displayed by changing index_data cell accessed
-plot_plot = cell2mat(index_data(2, cluster_num)); %get matrix to plot
+plot_plot = cell2mat(index_data(2, 2)); %get matrix to plot
 plot(plot_plot); %plot matrix
 
 extra_data = subplot(2, 1, 2); %create subplot for extracellular data
@@ -78,7 +72,7 @@ extra_plot = block_data{block_idx, 4}; %get data to plot
 plot(extra_plot); %plot data
 
 % ALSO CHANGE MARKERS TO ACCESS APPROPRIATE CLUSTER DATA
-markers = block_data{block_idx, cluster_num + 7}; %get indices of cluster spikes (cluster 1 = 8, cluster 2 = 9, etc)
+markers = block_data{block_idx, 9}; %get indices of cluster spikes (cluster 1 = 8, cluster 2 = 9, etc)
 marker_y = extra_plot(markers); %get y-values of extracellular trace for each index in markers
 
 hold on; %don't erase current plot
