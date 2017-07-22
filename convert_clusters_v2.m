@@ -1,15 +1,14 @@
+
+
 %% Get Clusters From Wave_clus Output 
 % Author: Nicholas Garcia
-% Version: 2017-07-21
+% Version: 2017-07-19
 
 %% User Configurable Variables
 % There is one configurable variable: the wave_clus output file to be loaded
 
     %file to load
     file_name = 'times_2017-07-06-c-trimmed_processed.mat';
-    
-    %file to save to
-    save_file = '2017-07-06-c-trimmed_processed.mat';
     
 %% Script
 
@@ -39,7 +38,7 @@
     end
     
     %save file (add it to file created from the 'file_processing' script
-    save(save_file, 'clusters', '-append');
+    save(file_name, 'clusters', '-append');
    
     
     
